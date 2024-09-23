@@ -1,0 +1,1 @@
+("~/Schreibtisch/DNSBelgium/" "~/Schreibtisch/exercise/" "~/Schreibtisch/consumer-producer-rust/" "~/IdeaProjects/Factions/" "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/")
