@@ -34,7 +34,6 @@ return {
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -54,6 +53,21 @@ return {
                     }
                 end,
 
+                -- ["perlpls"] = function()
+                --     local lspconfig = require("lspconfig")
+                --     lspconfig.perlpls.setup {
+                --         settings = {
+                --             pls = {
+                --                 inc = { '~/local/lib/perl5/PLS' },                          -- add list of dirs to @INC
+                --                 cwd = { '~/projects' },                                                       -- working directory for PLS
+                --                 perlcritic = { enabled = true, perlcriticrc = '~/.perlcriticrc' },   -- use perlcritic and pass a non-default location for its config
+                --                 syntax = { enabled = true, perl = '/usr/bin/perl', args = { 'arg1', 'arg2' } }, -- enable syntax checking and use a non-default perl binary
+                --                 perltidy = { perltidyrc = '~/.perltidyrc' }                          -- non-default location for perltidy's config
+                --             }
+                --         }
+                --     }
+                -- end,
+                --
                 -- Add a handler for jdtls (Java LSP)
                 ["jdtls"] = function()
                     local home = os.getenv("HOME")
@@ -62,9 +76,13 @@ return {
                     require("lspconfig").jdtls.setup({
                         capabilities = capabilities,
                         cmd = { "jdtls" },
-                        root_dir = require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle'),
+                        root_dir = require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml',
+                            'build.gradle'),
                         settings = {
                             java = {
+                                autobuild = {
+                                    enabled = false,
+                                },
                                 format = {
                                     enabled = true,
                                 },

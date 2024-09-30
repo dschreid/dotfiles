@@ -43,8 +43,6 @@ return require("packer").startup(function(use)
 			end,}
   use("nvim-treesitter/playground")
 
-  use("~/personal/harpoon")
-
   use("theprimeagen/vim-be-good")
   use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")

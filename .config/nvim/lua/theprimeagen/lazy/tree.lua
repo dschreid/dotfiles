@@ -14,6 +14,11 @@ return {
 
             -- OR setup with some options
             require("nvim-tree").setup({
+                update_focused_file = {
+                    enable      = true,
+                    update_cwd  = false,
+                    ignore_list = {}
+                },
                 sort = {
                     sorter = "case_sensitive",
                 },

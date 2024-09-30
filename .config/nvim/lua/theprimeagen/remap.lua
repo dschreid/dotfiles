@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set(
     "n",
-    "<leader>ee",
+    "<S-Enter>",
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
