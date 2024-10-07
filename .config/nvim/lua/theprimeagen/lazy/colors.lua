@@ -1,4 +1,18 @@
 return {
+    { "nvchad/volt" },
+    -- { "nvchad/menu" },
+    {
+        "nvchad/ui",
+        config = function()
+            require "nvchad"
+        end
+    },
+    {
+        "nvchad/base46",
+        config = function()
+            require "base46".load_all_highlights()
+        end
+    },
     {
         "ayu-theme/ayu-vim",
         priority = -100,
@@ -6,19 +20,18 @@ return {
             vim.o.termguicolors = true
             vim.cmd([[colorscheme ayu]])
 
-            vim.api.nvim_set_hl(0, "@lsp.type.namespace", { fg = "#e5e5e5" }) -- Color for module paths in imports
-            vim.api.nvim_set_hl(0, "@lsp.type.struct.rust", { fg = "#f6993f" }) -- Color for module paths in imports
+            vim.api.nvim_set_hl(0, "@lsp.type.namespace", { fg = "#e5e5e5" })      -- Color for module paths in imports
+            vim.api.nvim_set_hl(0, "@lsp.type.struct.rust", { fg = "#f6993f" })    -- Color for module paths in imports
             vim.api.nvim_set_hl(0, "@lsp.type.interface.rust", { fg = "#f6993f" }) -- Color for module paths in imports
-            vim.api.nvim_set_hl(0, "Operator", { fg = "#e5e5e5" }) -- Color for module paths in imports
-
+            vim.api.nvim_set_hl(0, "Operator", { fg = "#e5e5e5" })                 -- Color for module paths in imports
         end
     },
 
     {
         "arturgoms/moonbow.nvim",
         config = function()
---            vim.o.termguicolors = true
---            vim.cmd([[colorscheme moonbow]])
+            --            vim.o.termguicolors = true
+            --            vim.cmd([[colorscheme moonbow]])
         end
     },
     {
