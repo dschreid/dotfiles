@@ -112,6 +112,10 @@ fi
 [ -s "/home/schreider/.jabba/jabba.sh" ] && source "/home/schreider/.jabba/jabba.sh"
 
 # Nvim 
+export PATH="$PATH:/opt/nvim-linux64/bin"
 alias vi='nvim'
 alias vim='nvim'
+
+# Cargo
 . "$HOME/.cargo/env"
+
