@@ -30,7 +30,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "jdtls",
+                -- "jdtls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -69,31 +69,31 @@ return {
                 -- end,
                 --
                 -- Add a handler for jdtls (Java LSP)
-                ["jdtls"] = function()
-                    local home = os.getenv("HOME")
-                    local workspace_dir = home .. "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-
-                    require("lspconfig").jdtls.setup({
-                        capabilities = capabilities,
-                        cmd = { "jdtls" },
-                        root_dir = require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml',
-                            'build.gradle'),
-                        settings = {
-                            java = {
-                                autobuild = {
-                                    enabled = false,
-                                },
-                                format = {
-                                    enabled = true,
-                                },
-                            },
-                        },
-                        on_attach = function(client, bufnr)
-                            -- Enable codeLens for Java
-                            client.resolved_capabilities.document_code_lens = true
-                        end,
-                    })
-                end,
+                -- ["jdtls"] = function()
+                --     local home = os.getenv("HOME")
+                --     local workspace_dir = home .. "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+                --
+                --     require("lspconfig").jdtls.setup({
+                --         capabilities = capabilities,
+                --         cmd = { "jdtls" },
+                --         root_dir = require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml',
+                --             'build.gradle'),
+                --         settings = {
+                --             java = {
+                --                 autobuild = {
+                --                     enabled = false,
+                --                 },
+                --                 format = {
+                --                     enabled = true,
+                --                 },
+                --             },
+                --         },
+                --         on_attach = function(client, bufnr)
+                --             -- Enable codeLens for Java
+                --             client.resolved_capabilities.document_code_lens = true
+                --         end,
+                --     })
+                -- end,
             }
         })
 
