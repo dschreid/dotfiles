@@ -1,0 +1,74 @@
+[1mdiff --git a/.config/nvim/lua/theprimeagen/lazy/java.lua b/.config/nvim/lua/theprimeagen/lazy/java.lua[m
+[1mindex 34b5c6a..0ffbb20 100644[m
+[1m--- a/.config/nvim/lua/theprimeagen/lazy/java.lua[m
+[1m+++ b/.config/nvim/lua/theprimeagen/lazy/java.lua[m
+[36m@@ -1,40 +1,20 @@[m
+ return {[m
+[31m-    "nvim-java/nvim-java",[m
+[31m-    config = false,[m
+[31m-    dependencies = {[m
+[31m-        {[m
+[31m-            "neovim/nvim-lspconfig",[m
+[31m-            opts = {[m
+[31m-                servers = {[m
+[31m-                    jdtls = {[m
+[31m-                        -- your jdtls configuration goes here[m
+[31m-                        -- cmd = {[m
+[31m-                        --     'java',[m
+[31m-                        --     '-Declipse.application=org.eclipse.jdt.ls.core.id1',[m
+[31m-                        --     '-Dosgi.bundles.defaultStartLevel=4',[m
+[31m-                        --     '-Declipse.product=org.eclipse.jdt.ls.core.product',[m
+[31m-                        --     '-Dlog.protocol=true',[m
+[31m-                        --     '-Dlog.level=ALL',[m
+[31m-                        --     '-Xms4g',[m
+[31m-                        --     '--add-modules=ALL-SYSTEM',[m
+[31m-                        --     '--add-opens', 'java.base/java.util=ALL-UNNAMED',[m
+[31m-                        --     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',[m
+[31m-                        --     '-javaagent:' .. os.getenv("HOME") .. '/Coding/libs/lombok.jar',[m
+[31m-                        --     '-jar', os.getenv("HOME") .. '/Coding/libs/jdt/plugins/org.eclipse.equinox.launcher.jar',[m
+[31m-                        --     '-configuration', os.getenv("HOME") .. '/Coding/libs/jdt/config\_linux',[m
+[31m-                        --     '-data', workspace_dir[m
+[31m-                        --[m
+[31m-                        -- },[m
+[31m-                    },[m
+[31m-                },[m
+[31m-                setup = {[m
+[31m-                    jdtls = function()[m
+[31m-                        require("java").setup({[m
+[31m-                            -- your nvim-java configuration goes here[m
+[31m-                        })[m
+[31m-                    end,[m
+[31m-                },[m
+[31m-            },[m
+[32m+[m[32m  "nvim-java/nvim-java",[m
+[32m+[m[32m  dependencies = {[m
+[32m+[m[32m    "nvim-java/lua-async-await",[m
+[32m+[m[32m    "nvim-java/nvim-java-refactor",[m
+[32m+[m[32m    "nvim-java/nvim-java-core",[m
+[32m+[m[32m    "nvim-java/nvim-java-test",[m
+[32m+[m[32m    "nvim-java/nvim-java-dap",[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "williamboman/mason-lspconfig.nvim",[m
+[32m+[m[32m      opts = {[m
+[32m+[m[32m        handlers = {[m
+[32m+[m[32m          ["jdtls"] = function()[m
+[32m+[m[32m            require("lspconfig").jdtls.setup({}) -- Add this line for using the wrapped jdtls.setup[m
+[32m+[m[32m          end,[m
+         },[m
+[32m+[m[32m      },[m
+     },[m
+[32m+[m[32m  },[m
+ }[m
+[1mdiff --git a/.config/nvim/lua/theprimeagen/lazy/treesitter.lua b/.config/nvim/lua/theprimeagen/lazy/treesitter.lua[m
+[1mindex d57d8c9..6792403 100644[m
+[1m--- a/.config/nvim/lua/theprimeagen/lazy/treesitter.lua[m
+[1m+++ b/.config/nvim/lua/theprimeagen/lazy/treesitter.lua[m
+[36m@@ -8,7 +8,7 @@[m [mreturn {[m
+             max_lines = 3,  -- How many lines the window should span. Values <= 0 mean no limit.[m
+             min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.[m
+             line_numbers = true,[m
+[31m-            multiline_threshold = 20, -- Maximum number of lines to show for a single context[m
+[32m+[m[32m            multiline_threshold = 3, -- Maximum number of lines to show for a single context[m
+             trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'[m
+             mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'[m
+             -- Separator between context and content. Should be a single character string, like '-'.[m
