@@ -43,7 +43,7 @@ return {
                         -- "jdtls",
                     },
                     handlers = {
-                        function(server_name)     -- default handler (optional)
+                        function(server_name) -- default handler (optional)
                             require("lspconfig")[server_name].setup {
                                 capabilities = capabilities
                             }
@@ -85,7 +85,17 @@ return {
                                 "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
                             require("java").setup()
-                            require("lspconfig").jdtls.setup({})     -- Add this line for using the wrapped jdtls.setup
+                            require('lspconfig').jdtls.setup({
+                                handlers = {
+                                    ['language/status'] = function(_, result)
+                                        vim.print('***')
+                                    end,
+                                    ['$/progress'] = function(_, result, ctx)
+                                        vim.print('---')
+                                    end,
+                                },
+                            })
+                            -- Add this line for using the wrapped jdtls.setup
 
                             -- require("lspconfig").jdtls.setup({
                             --     capabilities = capabilities,
@@ -117,7 +127,7 @@ return {
                 cmp.setup({
                     snippet = {
                         expand = function(args)
-                            require('luasnip').lsp_expand(args.body)     -- For `luasnip` users.
+                            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                         end,
                     },
                     mapping = cmp.mapping.preset.insert({
@@ -129,7 +139,7 @@ return {
                     }),
                     sources = cmp.config.sources({
                         { name = 'nvim_lsp' },
-                        { name = 'luasnip' },     -- For luasnip users.
+                        { name = 'luasnip' }, -- For luasnip users.
                     }, {
                         { name = 'buffer' },
                     })
