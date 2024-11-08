@@ -15,6 +15,11 @@ require("lazy").setup({
     spec = "theprimeagen.lazy",
     change_detection = { notify = false }
 })
+
+-- Colorscheme
+vim.cmd("colorscheme kanagawa-dragon")
+
+
 --[[
 require("lazy").setup({
   use("~/personal/harpoon")

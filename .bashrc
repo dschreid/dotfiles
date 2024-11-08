@@ -111,7 +111,7 @@ fi
 
 [ -s "/home/schreider/.jabba/jabba.sh" ] && source "/home/schreider/.jabba/jabba.sh"
 
-# Nvim 
+# Nvim
 export PATH="$PATH:/opt/nvim-linux64/bin"
 alias vi='nvim'
 alias vim='nvim'
@@ -119,3 +119,4 @@ alias vim='nvim'
 # Cargo
 . "$HOME/.cargo/env"
 
+[[ -n "$DISPLAY" && "$TERM" = "xterm" ]] && export TERM=xterm-256color
