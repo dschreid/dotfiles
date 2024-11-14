@@ -17,7 +17,7 @@ require("lazy").setup({
 })
 
 -- Colorscheme
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme rose-pine")
 
 
 --[[

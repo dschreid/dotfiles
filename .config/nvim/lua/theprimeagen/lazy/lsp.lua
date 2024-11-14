@@ -40,6 +40,7 @@ return {
                     ensure_installed = {
                         "lua_ls",
                         "rust_analyzer",
+                        "perlnavigator",
                         -- "jdtls",
                     },
                     handlers = {
@@ -62,17 +63,28 @@ return {
                                 }
                             }
                         end,
-
+                        ["perlnavigator"] = function()
+                            require("lspconfig").perlnavigator.setup({
+                                capabilities = capabilities,
+                                settings = {
+                                    perlnavigator = {
+                                        perlPath = "~/local/lib/perl5/PLS",
+                                        enableWarnings = true,
+                                        -- Additional configuration options if needed
+                                    },
+                                },
+                            })
+                        end,
+                        --
                         -- ["perlpls"] = function()
-                        --     local lspconfig = require("lspconfig")
-                        --     lspconfig.perlpls.setup {
+                        --     require("lspconfig").perlpls.setup {
                         --         settings = {
                         --             pls = {
-                        --                 inc = { '~/local/lib/perl5/PLS' },                          -- add list of dirs to @INC
-                        --                 cwd = { '~/projects' },                                                       -- working directory for PLS
-                        --                 perlcritic = { enabled = true, perlcriticrc = '~/.perlcriticrc' },   -- use perlcritic and pass a non-default location for its config
+                        --                 inc = { '~/local/lib/perl5/PLS' },                                              -- add list of dirs to @INC
+                        --                 -- cwd = { '~/projects' },                                                         -- working directory for PLS
+                        --                 perlcritic = { enabled = true, perlcriticrc = '~/.perlcriticrc' },              -- use perlcritic and pass a non-default location for its config
                         --                 syntax = { enabled = true, perl = '/usr/bin/perl', args = { 'arg1', 'arg2' } }, -- enable syntax checking and use a non-default perl binary
-                        --                 perltidy = { perltidyrc = '~/.perltidyrc' }                          -- non-default location for perltidy's config
+                        --                 perltidy = { perltidyrc = '~/.perltidyrc' }                                     -- non-default location for perltidy's config
                         --             }
                         --         }
                         --     }

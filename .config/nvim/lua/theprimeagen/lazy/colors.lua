@@ -4,6 +4,11 @@ return {
     { "rose-pine/neovim" },
     { "rebelot/kanagawa.nvim" },
     { "arturgoms/moonbow.nvim", },
+    { "aktersnurra/no-clown-fiesta.nvim", },
+    { "EdenEast/nightfox.nvim", },
+    { "morhetz/gruvbox", },
+    { "folke/tokyonight.nvim", },
+    { "AlexvZyl/nordic.nvim", },
     {
         "catppuccin/nvim",
         name = "catppuccin",

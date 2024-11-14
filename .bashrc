@@ -120,3 +120,5 @@ alias vim='nvim'
 . "$HOME/.cargo/env"
 
 [[ -n "$DISPLAY" && "$TERM" = "xterm" ]] && export TERM=xterm-256color
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
