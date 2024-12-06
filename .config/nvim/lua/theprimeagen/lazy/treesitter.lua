@@ -3,6 +3,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
+        -- Command Alias
+        vim.cmd("cnoreabbrev NTO NvimTreeOpen")
+        vim.cmd("cnoreabbrev nto NvimTreeOpen")
+
         -- require 'treesitter-context'.setup {
         --     enable = false,  -- Enable this plugin (Can be enabled/disabled later via commands)
         --     max_lines = 3,  -- How many lines the window should span. Values <= 0 mean no limit.

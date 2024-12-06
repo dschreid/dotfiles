@@ -64,16 +64,27 @@ return {
                             }
                         end,
                         ["perlnavigator"] = function()
-                            require("lspconfig").perlnavigator.setup({
-                                capabilities = capabilities,
+                            require("lspconfig").perlnavigator.setup {
+                                cmd = { "perlnavigator" },
                                 settings = {
                                     perlnavigator = {
-                                        perlPath = "~/local/lib/perl5/PLS",
+                                        perlPath = "perl",
                                         enableWarnings = true,
-                                        -- Additional configuration options if needed
-                                    },
-                                },
-                            })
+                                        perltidyProfile = '~/.perltidyrc',
+                                        perlcriticProfile = '~/.perlcriticrc',
+                                        perlcriticEnabled = true,
+                                        includePaths = {
+                                            "$workspaceFolder/local/lib/perl5",
+                                            "$workspaceFolder/catcher/local/lib/perl5",
+                                            "$workspaceFolder/manager/local/lib/perl5",
+                                            "/home/schreider/projects/generic-catcher/lib",
+                                            "/home/schreider/projects/generic-catcher/local/lib/perl5",
+                                            "/home/schreider/projects/generic-manager/lib",
+                                            "/home/schreider/projects/generic-manager/local/lib/perl5"
+                                        },
+                                    }
+                                }
+                            }
                         end,
                         --
                         -- ["perlpls"] = function()

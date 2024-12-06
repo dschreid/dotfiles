@@ -9,6 +9,16 @@ return {
     { "morhetz/gruvbox", },
     { "folke/tokyonight.nvim", },
     { "AlexvZyl/nordic.nvim", },
+    { "metalelf0/jellybeans-nvim", },
+    { "marko-cerovac/material.nvim", },
+    {
+        "Mofiqul/dracula.nvim",
+        dependencies = { "rktjmp/lush.nvim" }
+    },
+    {
+        "kabouzeid/nvim-jellybeans",
+        dependencies = { "rktjmp/lush.nvim" }
+    },
     {
         "catppuccin/nvim",
         name = "catppuccin",
