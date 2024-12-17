@@ -9,15 +9,22 @@ return {
     { "morhetz/gruvbox", },
     { "folke/tokyonight.nvim", },
     { "AlexvZyl/nordic.nvim", },
-    { "metalelf0/jellybeans-nvim", },
-    { "marko-cerovac/material.nvim", },
     {
         "Mofiqul/dracula.nvim",
         dependencies = { "rktjmp/lush.nvim" }
     },
     {
-        "kabouzeid/nvim-jellybeans",
-        dependencies = { "rktjmp/lush.nvim" }
+        "metalelf0/jellybeans-nvim",
+        dependencies = { "rktjmp/lush.nvim" },
+        config = function ()
+            vim.api.nvim_create_autocmd("ColorScheme", {
+                pattern = "jellybeans-nvim",
+                callback = function()
+                    vim.api.nvim_set_hl(0, "special", { fg = "#7998c2" })
+                    vim.api.nvim_set_hl(0, "type", { fg = "#ffb964" })
+                end,
+            })
+        end
     },
     {
         "catppuccin/nvim",
@@ -41,11 +48,11 @@ return {
                 types = {},
             },
             color_overrides = {
-                mocha = {
-                    base = "#000000",
-                    mantle = "#000000",
-                    crust = "#000000",
-                },
+                -- mocha = {
+                --     base = "#000000",
+                --     mantle = "#000000",
+                --     crust = "#000000",
+                -- },
             },
             -- integrations = {
             --     telescope = {

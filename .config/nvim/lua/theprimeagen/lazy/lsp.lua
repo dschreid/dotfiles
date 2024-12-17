@@ -41,7 +41,7 @@ return {
                         "lua_ls",
                         "rust_analyzer",
                         "perlnavigator",
-                        -- "jdtls",
+                        "clangd",
                     },
                     handlers = {
                         function(server_name) -- default handler (optional)
