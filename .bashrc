@@ -157,12 +157,7 @@ wd() {
 
 PROMPT_COMMAND="__ps1"
 
-
-# unset git config in case someone sets them by mistake
-if [ "$(id -u)" = "0" ]; then
-    git config --global --unset user.name
-    git config --global --unset user.email
-fi
+# --------------------------- Own Stuff ---------------------------
 
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
