@@ -73,6 +73,7 @@ return {
                                         perltidyProfile = '~/.perltidyrc',
                                         perlcriticProfile = '~/.perlcriticrc',
                                         perlcriticEnabled = true,
+                                        perlcriticSeverity = 3,
                                         includePaths = {
                                             "$workspaceFolder/local/lib/perl5",
                                             "$workspaceFolder/catcher/local/lib/perl5",
