@@ -159,6 +159,7 @@ PROMPT_COMMAND="__ps1"
 
 # --------------------------- Own Stuff ---------------------------
 
+[ -d "${HOME}/.local/kitty.app/bin" ] && PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
 [ -d "${HOME}/.dopr/bin" ] && PATH="${HOME}/.dopr/bin:${PATH}"
