@@ -10,7 +10,10 @@ return {
         dependencies = { "rafamadriz/friendly-snippets" },
 
         config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
             local ls = require("luasnip")
+            ls.setup({})
+
             ls.filetype_extend("javascript", { "jsdoc" })
 
             --- TODO: What is expand?

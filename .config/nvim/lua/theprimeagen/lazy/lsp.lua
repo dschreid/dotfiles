@@ -40,8 +40,9 @@ return {
                     ensure_installed = {
                         "lua_ls",
                         "rust_analyzer",
-                        "perlnavigator",
+                        -- "perlnavigator",
                         "clangd",
+                        "jdtls",
                     },
                     handlers = {
                         function(server_name) -- default handler (optional)
@@ -110,6 +111,10 @@ return {
 
                             require("java").setup()
                             require('lspconfig').jdtls.setup({
+                                on_attach = function(client, bufnr)
+                                    -- Disable semantic highlighting
+                                    client.server_capabilities.semanticTokensProvider = nil
+                                end,
                                 handlers = {
                                     ['language/status'] = function(_, result)
                                         vim.print('***')
