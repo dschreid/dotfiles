@@ -157,6 +157,17 @@ wd() {
 
 PROMPT_COMMAND="__ps1"
 
+# --------------------------- Tmux Auto ---------------------------
+
+# Start tmux automatically if not already inside a tmux session
+if command -v tmux >/dev/null 2>&1; then
+  # Check if already inside tmux
+  if [ -z "$TMUX" ]; then
+    # Try to attach to an existing session named 'main', else create it
+    tmux attach -t main || tmux new -s main
+  fi
+fi
+
 # --------------------------- Own Stuff ---------------------------
 
 [ -d "${HOME}/.local/kitty.app/bin" ] && PATH="${HOME}/.local/kitty.app/bin:${PATH}"
@@ -189,5 +200,7 @@ alias vim='nvim'
 
 # Cargo
 . "$HOME/.cargo/env"
+
+alias generate-ssh-config-me='generate-ssh-config --user schreider --port 222'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

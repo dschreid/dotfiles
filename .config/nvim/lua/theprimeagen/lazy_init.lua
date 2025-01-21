@@ -17,8 +17,7 @@ require("lazy").setup({
 })
 
 -- Colorscheme
-vim.cmd("colorscheme jellybeans-nvim")
-
+vim.cmd("colorscheme terafox")
 
 --[[
 require("lazy").setup({
