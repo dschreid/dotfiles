@@ -17,7 +17,7 @@ require("lazy").setup({
 })
 
 -- Colorscheme
-vim.cmd("colorscheme terafox")
+vim.cmd("colorscheme kanagawa")
 
 --[[
 require("lazy").setup({

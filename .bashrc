@@ -201,6 +201,6 @@ alias vim='nvim'
 # Cargo
 . "$HOME/.cargo/env"
 
-alias generate-ssh-config-me='generate-ssh-config --user schreider --port 222'
+alias generate-ssh-config-me='generate-ssh-config --user schreider'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

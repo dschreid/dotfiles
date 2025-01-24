@@ -13,6 +13,20 @@ return {
     { "oxfist/night-owl.nvim", },
     { "vague2k/vague.nvim", },
     { "ficcdaf/ashen.nvim", },
+    { "navarasu/onedark.nvim", },
+    { "olimorris/onedarkpro.nvim", },
+    {
+        "blazkowolf/gruber-darker.nvim",
+        config = function()
+            vim.api.nvim_create_autocmd("ColorScheme", {
+                pattern = "gruber-darker",
+                callback = function()
+                    vim.cmd("highlight String gui=NONE")
+                    vim.cmd("highlight GruberDarkerYellowBold gui=NONE")
+                end,
+            })
+        end
+    },
     {
         "Mofiqul/dracula.nvim",
         dependencies = { "rktjmp/lush.nvim" }
@@ -22,14 +36,14 @@ return {
         config = function()
             require('nightfox').setup({
                 options = {
-                    transparent = false,      -- Disable setting background
+                    transparent = false,     -- Disable setting background
                     terminal_colors = false, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
                 },
                 palettes = {
                     terafox = {
-                        bg1 = "#1c1c1c", -- Black background
-                        bg0 = "#2c2c2c", -- Alt backgrounds (floats, statusline, ...)
-                        bg3 = "#2c2c2c", -- 55% darkened from stock
+                        bg1 = "#1c1c1c",  -- Black background
+                        bg0 = "#2c2c2c",  -- Alt backgrounds (floats, statusline, ...)
+                        bg3 = "#2c2c2c",  -- 55% darkened from stock
                         sel0 = "#2c2c2c", -- 55% darkened from stock
                     },
                 },
