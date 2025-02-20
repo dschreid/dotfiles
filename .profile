@@ -28,3 +28,6 @@ fi
 
 PATH="$PATH:/home/schreider/opt/PhpStorm-241.18034.69/bin"
 . "$HOME/.cargo/env"
+
+# Go
+export PATH="$PATH:/usr/local/go/bin"

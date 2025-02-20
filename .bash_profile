@@ -10,3 +10,4 @@ fi
 [ -s "/home/schreider/.jabba/jabba.sh" ] && source "/home/schreider/.jabba/jabba.sh"
 . "$HOME/.cargo/env"
 export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"

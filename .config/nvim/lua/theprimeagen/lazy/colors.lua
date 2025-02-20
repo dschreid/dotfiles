@@ -15,6 +15,7 @@ return {
     { "ficcdaf/ashen.nvim", },
     { "navarasu/onedark.nvim", },
     { "olimorris/onedarkpro.nvim", },
+    { "RRethy/base16-nvim", },
     {
         "blazkowolf/gruber-darker.nvim",
         config = function()
