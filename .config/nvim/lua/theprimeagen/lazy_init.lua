@@ -16,8 +16,12 @@ require("lazy").setup({
     change_detection = { notify = false }
 })
 
+vim.g.gruvbox_material_foreground = 'mix'
+vim.g.gruvbox_material_background = 'hard'
+
 -- Colorscheme
-vim.cmd("colorscheme kanagawa")
+-- vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme gruvbox-material")
 
 --[[
 require("lazy").setup({
