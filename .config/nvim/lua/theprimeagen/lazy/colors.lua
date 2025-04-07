@@ -1,6 +1,7 @@
 return {
     { "projekt0n/github-nvim-theme" },
     { "sainnhe/gruvbox-material" },
+    { "morhetz/gruvbox" },
     { "rose-pine/neovim" },
     { "rebelot/kanagawa.nvim" },
     { "arturgoms/moonbow.nvim", },
@@ -15,7 +16,6 @@ return {
     { "ficcdaf/ashen.nvim", },
     { "navarasu/onedark.nvim", },
     { "olimorris/onedarkpro.nvim", },
-    { "RRethy/base16-nvim", },
     {
         "blazkowolf/gruber-darker.nvim",
         config = function()
@@ -86,22 +86,17 @@ return {
                 types = {},
             },
             color_overrides = {
+                all = {
+                    base = "#181926",
+                },
                 -- mocha = {
                 --     base = "#000000",
                 --     mantle = "#000000",
                 --     crust = "#000000",
                 -- },
             },
-            -- integrations = {
-            --     telescope = {
-            --         enabled = true,
-            --         style = "nvchad",
-            --     },
-            --     dropbar = {
-            --         enabled = true,
-            --         color_mode = true,
-            --     },
-            -- },
+            integrations = {
+            },
         },
 
     },
@@ -119,6 +114,29 @@ return {
             --
             -- vim.api.nvim_set_hl(0, "Operator", { fg = "#e5e5e5" }) -- Color for module paths in imports
         end
+    },
+    {
+        "xiantang/darcula-dark.nvim",
+        config = function()
+            -- setup must be called before loading
+            require("darcula").setup({
+                override = function(c)
+                    return {
+                        background = "#333333",
+                        dark = "#000000"
+                    }
+                end,
+                opt = {
+                    integrations = {
+                        telescope = false,
+                        lualine = true,
+                        lsp_semantics_token = true,
+                        nvim_cmp = true,
+                        dap_nvim = true,
+                    },
+                },
+            })
+        end,
     },
     {
         'nvim-lualine/lualine.nvim',

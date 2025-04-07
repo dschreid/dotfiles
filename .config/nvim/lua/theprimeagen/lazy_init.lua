@@ -20,8 +20,16 @@ vim.g.gruvbox_material_foreground = 'mix'
 vim.g.gruvbox_material_background = 'hard'
 
 -- Colorscheme
--- vim.cmd("colorscheme kanagawa")
-vim.cmd("colorscheme gruvbox-material")
+-- vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme github_dark_default")
+
+-- Disable LSP Semantics Tokens because they suck
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     client.server_capabilities.semanticTokensProvider = nil
+--   end,
+-- });
 
 --[[
 require("lazy").setup({
