@@ -166,6 +166,8 @@ alias vim='nvim'
 source "$HOME/.cargo/env"
 
 alias generate-ssh-config-me='generate-ssh-config --user schreider'
+alias dcup='docker context use production'
+alias dcud='docker context use default'
 
 # Uncomment and modify the following lines if you wish to enable linuxbrew or starship for zsh:
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
