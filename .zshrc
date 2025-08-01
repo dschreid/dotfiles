@@ -27,6 +27,7 @@ export LANG=en_US.UTF-8
 export TERM=xterm-256color
 
 # --------------------------- Tmux Auto ---------------------------
+#
 if _have tmux; then
   if [[ -z "$TMUX" ]]; then
     # Try to attach to an existing session named 'main', else create it
@@ -34,17 +35,10 @@ if _have tmux; then
   fi
 fi
 
-
-
 # --------------------------- Common ---------------------------
 
 [[ -d "$HOME/bin" ]] && PATH="$HOME/bin:$PATH"
-
-
-[[ -f "$HOME/.bashrc_own" ]]   && source "$HOME/.bashrc_own"
-[[ -f "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
-
-# Source jabba if available
+[[ -f "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
 # --------------------------- Aliases ---------------------------
 
