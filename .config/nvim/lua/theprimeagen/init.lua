@@ -77,6 +77,7 @@ autocmd('LspAttach', {
     end
 })
 
+-- TODO: Learn how to use nvim's filetype configurations
 autocmd("FileType", {
     pattern = "perl",
     callback = function()
