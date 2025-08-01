@@ -169,6 +169,9 @@ alias generate-ssh-config-me='generate-ssh-config --user schreider'
 alias dcup='docker context use production'
 alias dcud='docker context use default'
 
-# Uncomment and modify the following lines if you wish to enable linuxbrew or starship for zsh:
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# eval "$(starship init zsh)"
+# Set-up icons for files/directories in terminal using lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
