@@ -1,3 +1,5 @@
+local config = require("config")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -21,4 +23,5 @@ vim.g.gruvbox_material_background = 'hard'
 
 -- Colorscheme
 -- vim.cmd("colorscheme catppuccin")
-vim.cmd("colorscheme github_dark_default")
+-- vim.cmd("colorscheme github_dark_default")
+vim.cmd(string.format("colorscheme %s", config.colorscheme))

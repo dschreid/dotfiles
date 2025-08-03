@@ -15,23 +15,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# ---------------------- local utility functions ---------------------
-
-_have() {
-  command -v "$1" > /dev/null 2>&1
-}
-
 # ----------------------- environment variables ----------------------
 
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
 
 # --------------------------- Tmux Auto ---------------------------
-#
-if _have tmux; then
+
+if [[ -v WITH_TMUX ]]; then
   if [[ -z "$TMUX" ]]; then
-    # Try to attach to an existing session named 'main', else create it
-    tmux attach -t main || tmux new -s main
+      tmux attach -t main || tmux new -s main
   fi
 fi
 
