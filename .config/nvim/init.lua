@@ -57,6 +57,6 @@ autocmd("FileType", {
     pattern = "perl",
     callback = function()
         vim.opt_local.iskeyword:remove(":")
-        vim.opt_local.iskeyword:remove("_")
+        -- vim.opt_local.iskeyword:remove("_")
     end,
 })
