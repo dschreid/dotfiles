@@ -38,6 +38,7 @@ fi
 alias vi='nvim'
 alias vim='nvim'
 
+alias cat='bat'
 
 alias ls='lsd'
 alias l='ls -l'
