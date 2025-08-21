@@ -48,6 +48,27 @@ autocmd('LspAttach', {
         vim.keymap.set("i", "<C-p>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+
+        vim.keymap.set("n", "<C-M-K>", function()
+          local params = vim.lsp.util.make_position_params()
+          vim.lsp.buf_request(0, "textDocument/hover", params, function(err, result, ctx, config)
+            if err or not result or not result.contents then return end
+
+            -- open a vertical split and use a scratch buffer
+            vim.api.nvim_open_win(0, false, {
+              split = 'left',
+              win = 0
+            })
+
+
+            local buf = vim.api.nvim_create_buf(false, true)
+            vim.api.nvim_win_set_buf(0, buf)
+
+            local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, markdown_lines)
+            vim.bo[buf].filetype = "markdown"
+          end)
+        end, { buffer = 0 })
     end
 })
 
