@@ -17,9 +17,9 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "tray",
         "battery",
         "battery#bat2",
-        "tray",
     ],
     // Modules configuration
     "hyprland/workspaces": {
