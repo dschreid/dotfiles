@@ -18,14 +18,15 @@ source $ZSH/oh-my-zsh.sh
 
 docker_prompt() {
   if command -v docker &>/dev/null; then
-      local context=$(docker context show 2>/dev/null)
-      if ! [[ $context == "default" ]]; then
-          echo " ${fg[blue]}docker:($fg[red]$context${fg[blue]})"
-      fi
+    local context
+    context=$(docker context show 2>/dev/null)
+    if [[ -n $context && $context != default ]]; then
+      printf ' %%F{blue}docker:(%%F{red}%s%%F{blue})%%f' "$context"
+    fi
   fi
 }
 
-PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%~\$(docker_prompt)%{$reset_color%}"
+PROMPT='%(?.%F{green}➜.%F{red}➜)%f %F{cyan}%~%f$(docker_prompt)'
 PROMPT+=' $(git_prompt_info)'
 
 # ----------------------- environment variables ----------------------
